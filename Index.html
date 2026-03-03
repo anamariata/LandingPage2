@@ -1,0 +1,1561 @@
+<!doctype html>
+<html lang="es">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B. Braun - Soluciones Oncológicas</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .section-padding {
+            padding: 80px 20px;
+        }
+        
+        .app-container {
+            width: 100%;
+            min-height: 100%;
+        }
+        
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .stat-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .solution-card {
+            transition: all 0.3s ease;
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .benefit-card {
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 128, 96, 0.3);
+        }
+        
+        .btn-secondary {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+        }
+        
+        .nav-link:hover {
+            color: #008060 !important;
+        }
+        
+        .dropdown-container {
+            position: relative;
+        }
+        
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 280px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 12px 0;
+            margin-top: 8px;
+            z-index: 1001;
+        }
+        
+        .dropdown-container:hover .dropdown {
+            display: block;
+        }
+        
+        .dropdown li {
+            list-style: none;
+        }
+        
+        .dropdown li a {
+            display: block;
+            padding: 12px 24px;
+            color: #4a5568;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .dropdown li a:hover {
+            background-color: #f8f9fa;
+            color: #008060;
+            padding-left: 28px;
+        }
+        
+        .dropdown-arrow {
+            display: inline-block;
+            margin-left: 4px;
+            transition: transform 0.3s ease;
+        }
+        
+        .dropdown-container:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+        
+        header {
+            background-color: white;
+            border-bottom: 1px solid #e9ecef;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+        
+        /* Hero responsive styles */
+        @media (max-width: 768px) {
+            #inicio .w-full[style*="padding: 0 8%"] {
+                padding: 0 6% !important;
+            }
+            #hero-title {
+                font-size: 2rem !important;
+            }
+            #hero-question {
+                font-size: 0.85rem !important;
+            }
+            #cta-primary {
+                font-size: 0.9rem !important;
+                padding: 0.9rem 2rem !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            #inicio .w-full[style*="padding: 0 8%"] {
+                padding: 0 5% !important;
+            }
+            #hero-title {
+                font-size: 1.6rem !important;
+            }
+            #hero-question {
+                font-size: 0.8rem !important;
+            }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stat-number {
+            animation: scaleIn 0.6s ease-out forwards;
+        }
+        
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        #cta-primary:hover {
+            background-color: #00a97a !important;
+            color: white !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="app-container"><!-- Header -->
+   <header class="w-full">
+    <div class="w-full mx-auto px-6 py-4">
+     <div class="flex justify-between items-center max-w-7xl mx-auto"><!-- Logo and Company Description -->
+      <div class="flex items-center">
+       <div>
+        <h1 class="text-2xl font-bold" style="color: #008060;">B. Braun</h1>
+        <p class="text-sm" style="color: #4a5568; font-weight: 500;">Empresa líder en tecnología médica</p>
+       </div>
+      </div><!-- Navigation Menu -->
+      <nav class="hidden md:flex items-center space-x-8"><a href="#inicio" class="nav-link text-sm font-medium" style="color: #4a5568;">Inicio</a> <a href="#desafios" class="nav-link text-sm font-medium" style="color: #4a5568;">Desafíos</a>
+       <div class="dropdown-container"><a href="#soluciones" class="nav-link text-sm font-medium" style="color: #4a5568;"> Soluciones <span class="dropdown-arrow">▾</span> </a>
+        <ul class="dropdown">
+         <li><a href="#sistemas-cerrados">Sistemas cerrados Ecoflac®</a></li>
+         <li><a href="#nutricion-enteral">Nutrición enteral</a></li>
+         <li><a href="#comodidad-paciente">Comodidad del paciente</a></li>
+         <li><a href="#preparacion-medicamentos">Preparaci��n de medicamentos</a></li>
+         <li><a href="#aplicacion-medicamentos">Aplicación de medicamentos</a></li>
+         <li><a href="#prevencion-heridas">Prevención y curación de heridas</a></li>
+         <li><a href="#hidratacion">Hidratación</a></li>
+        </ul>
+       </div><a href="#beneficios" class="nav-link text-sm font-medium" style="color: #4a5568;">Beneficios</a> <a href="#formulario" class="btn-primary px-6 py-2.5 rounded-lg text-sm font-semibold" style="background-color: #008060; color: white; border: none; cursor: pointer; text-decoration: none; display: inline-block;"> Solicitar información </a>
+      </nav><!-- Mobile Menu Button --> <button id="mobile-menu-btn" class="md:hidden" style="color: #4a5568; background: none; border: none; cursor: pointer;">
+       <svg id="menu-icon" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line> <line x1="3" y1="6" x2="21" y2="6"></line> <line x1="3" y1="18" x2="21" y2="18"></line>
+       </svg></button>
+     </div><!-- Mobile Menu -->
+     <div id="mobile-menu" class="md:hidden mt-4 pb-4" style="display: none; border-top: 1px solid #e9ecef; padding-top: 16px;">
+      <nav class="flex flex-col space-y-4"><a href="#inicio" class="nav-link-mobile text-sm font-medium" style="color: #4a5568;">Inicio</a> <a href="#desafios" class="nav-link-mobile text-sm font-medium" style="color: #4a5568;">Desafíos</a> <a href="#soluciones" class="nav-link-mobile text-sm font-medium" style="color: #4a5568;">Soluciones</a> <a href="#beneficios" class="nav-link-mobile text-sm font-medium" style="color: #4a5568;">Beneficios</a> <a href="#formulario" class="btn-primary px-6 py-2.5 rounded-lg text-sm font-semibold" style="background-color: #008060; color: white; border: none; cursor: pointer; width: 100%; text-decoration: none; display: inline-block; text-align: center;"> Solicitar información </a>
+      </nav>
+     </div>
+    </div>
+   </header><!-- Hero Section -->
+    <section id="inicio" class="w-full relative" style="min-height: 600px; background-image: url('./assets/portada/portada.jpg'); background-size: cover; background-position: center;">
+        <!-- Overlay sutil -->
+    <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0.05));"></div>
+    <!-- Contenedor de contenido -->
+    <div class="relative w-full h-full flex items-center py-16 md:py-20 px-6 md:px-[8%]">
+    <!-- Bloque verde con texto -->
+     <div class="bg-[#00a97a] p-8 md:p-12 rounded-2xl max-w-2xl" style="box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
+      <p id="hero-question" class="mb-4" style="color: white; font-size: 0.875rem; font-weight: 550; letter-spacing: 0.5px; opacity: 0.95;">¿Cómo garantizar la máxima seguridad en cada etapa del tratamiento oncológico?</p>
+      <h1 id="hero-title" class="mb-6" style="color: white; font-size: 2.5rem; font-weight: 700; line-height: 1.3;">Seguridad y cuidado en cada etapa del tratamiento oncológico.</h1>
+      <p id="hero-subtitle" class="mb-8" style="color: white; font-size: 1.05rem; font-weight: 450; line-height: 1.6; opacity: 0.95;">Desde la prescripción hasta el alta hospitalaria, nuestras soluciones integrales transforman cada fase del tratamiento en una experiencia más segura y eficaz</p>
+      <a href="#formulario" id="cta-primary" class="btn-primary" style="display: inline-block; background-color: white; color: #00a97a; font-size: 1rem; font-weight: 600; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; transition: all 0.3s ease; border: 2px solid white; cursor: pointer;"> Contactate con un asesor </a>
+     </div>
+    </div>
+   </section>
+    <!-- Scroll Indicator -->
+    <div class="absolute left-1/2" style="bottom: 32px; transform: translateX(-50%); z-index: 10; animation: bounce 2s infinite;">
+     <svg width="30" height="30" viewbox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.75;"><path d="M 15 5 L 15 22 M 15 22 L 10 17 M 15 22 L 20 17" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+     </svg>
+    </div>
+   </section>
+   <!-- Problem Section -->
+   <section id="desafios" class="w-full section-padding" style="background-color: white;">
+    <div class="w-full mx-auto px-6">
+     <div class="max-w-5xl mx-auto text-center">
+      <h2 id="problem-title" class="mb-6" style="font-size: 2.5rem; font-weight: 700; color: #1a1a1a;">¿Qué desafíos enfrentan los profesionales y pacientes en oncología?</h2>
+      <p class="mb-12" style="font-size: 1.125rem; color: #4a5568; line-height: 1.75;">La terapia oncológica presenta riesgos significativos en cada fase del tratamiento. Conoce los principales desafíos que enfrentan profesionales sanitarios y pacientes.</p><!-- Stats -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-16">
+       <div class="stat-card animate-on-scroll" style="transition-delay: 0.1s;">
+        <div class="stat-number mb-2" style="font-size: 3.5rem; font-weight: 700; color: #008060;">
+         60%
+        </div>
+        <p style="color: #4a5568; font-weight: 500;">Del personal sanitario ha reportado contacto accidental con medicamentos citotóxicos</p>
+       </div>
+       <div class="stat-card animate-on-scroll" style="transition-delay: 0.2s;">
+        <div class="stat-number mb-2" style="font-size: 3.5rem; font-weight: 700; color: #008060; animation-delay: 0.2s;">
+         30%
+        </div>
+        <p style="color: #4a5568; font-weight: 500;">De las preparaciones oncológicas presentan riesgo de contaminación cruzada</p>
+       </div>
+       <div class="stat-card animate-on-scroll" style="transition-delay: 0.3s;">
+        <div class="stat-number mb-2" style="font-size: 3.5rem; font-weight: 700; color: #008060; animation-delay: 0.3s;">
+         40-80%
+        </div>
+        <p style="color: #4a5568; font-weight: 500;">De los pacientes oncol��gicos sufren desnutrici��n durante el tratamiento</p>
+       </div>
+       <div class="stat-card animate-on-scroll" style="transition-delay: 0.4s;">
+        <div class="stat-number mb-2" style="font-size: 3.5rem; font-weight: 700; color: #008060; animation-delay: 0.4s;">
+         70%
+        </div>
+        <p style="color: #4a5568; font-weight: 500;">De los pacientes con quimioterapia experimenta complicaciones en las venas</p>
+       </div>
+       <div class="stat-card animate-on-scroll" style="transition-delay: 0.5s;">
+        <div class="stat-number mb-2" style="font-size: 3.5rem; font-weight: 700; color: #008060; animation-delay: 0.5s;">
+         50%
+        </div>
+        <p style="color: #4a5568; font-weight: 500;">De los pacientes ambulatorios carece de dispositivos adecuados para administración segura</p>
+       </div>
+       <div class="stat-card animate-on-scroll" style="transition-delay: 0.6s;">
+        <div class="stat-number mb-2" style="font-size: 3.5rem; font-weight: 700; color: #008060; animation-delay: 0.6s;">
+         35%
+        </div>
+        <p style="color: #4a5568; font-weight: 500;">De los pacientes desarrolla heridas o irritaciones cutáneas relacionadas con la terapia</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- Solution Section -->
+   <section id="soluciones" class="section-padding" style="background-color: #f8f9fa;">
+    <div class="content-wrapper">
+     <div class="text-center mb-12 animate-on-scroll">
+      <h2 id="solution-title" class="mb-4" style="font-size: 2.5rem; font-weight: 700; color: #1a1a1a;">Soluciones B. Braun para una terapia segura y efectiva</h2>
+      <p id="solution-subtitle" style="font-size: 1.25rem; color: #4a5568; font-weight: 300;">Innovación y protección para cada etapa del tratamiento oncológico.</p>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"><!-- Solution 1 --> <a href="#sistemas-cerrados" class="solution-card p-8 rounded-xl animate-on-scroll" style="background-color: white; transition-delay: 0.1s; text-decoration: none; display: block; cursor: pointer;">
+       <div class="mb-6 floating-icon" style="width: 60px; height: 60px; background-color: #008060; border-radius: 12px; display: flex; align-items: center; justify-content: center; animation-delay: 0.5s;">
+        <svg width="30" height="30" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M2 17L12 22L22 17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M2 12L12 17L22 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+       </div><h3 class="mb-3" style="font-size: 1.5rem; font-weight: 600; color: #1a1a1a;">Sistemas cerrados</h3><p style="color: #4a5568;">Administración segura de fluidos intravenosos con tecnología avanzada para máxima seguridad del personal.</p></a> <!-- Solution 2 --> <a href="#nutricion-enteral" class="solution-card p-8 rounded-xl animate-on-scroll" style="background-color: white; transition-delay: 0.2s; text-decoration: none; display: block; cursor: pointer;">
+       <div class="mb-6 floating-icon" style="width: 60px; height: 60px; background-color: #008060; border-radius: 12px; display: flex; align-items: center; justify-content: center; animation-delay: 0.7s;">
+        <svg width="30" height="30" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="white" stroke-width="2" /> <path d="M12 6V12L16 14" stroke="white" stroke-width="2" stroke-linecap="round" />
+        </svg>
+       </div><h3 class="mb-3" style="font-size: 1.5rem; font-weight: 600; color: #1a1a1a;">Nutrición enteral</h3><p style="color: #4a5568;">Prevención de desnutrición y caquexia durante el tratamiento oncológico.</p></a> <!-- Solution 3 --> <a href="#comodidad-paciente" class="solution-card p-8 rounded-xl animate-on-scroll" style="background-color: white; transition-delay: 0.3s; text-decoration: none; display: block; cursor: pointer;">
+       <div class="mb-6 floating-icon" style="width: 60px; height: 60px; background-color: #008060; border-radius: 12px; display: flex; align-items: center; justify-content: center; animation-delay: 0.9s;">
+        <svg width="30" height="30" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 21V5C20 4.46957 19.7893 3.96086 19.4142 3.58579C19.0391 3.21071 18.5304 3 18 3H6C5.46957 3 4.96086 3.21071 4.58579 3.58579C4.21071 3.96086 4 4.46957 4 5V21M2 21H22M8 11H10M8 15H10M14 11H16M14 15H16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+       </div><h3 class="mb-3" style="font-size: 1.5rem; font-weight: 600; color: #1a1a1a;">Soluciones para la comodidad del paciente</h3><p style="color: #4a5568;">Dispositivos especializados para el acceso intravenoso que garantizan confort y seguridad.</p></a> <!-- Solution 4 --> <a href="#preparacion-medicamentos" class="solution-card p-8 rounded-xl animate-on-scroll" style="background-color: white; transition-delay: 0.4s; text-decoration: none; display: block; cursor: pointer;">
+       <div class="mb-6 floating-icon" style="width: 60px; height: 60px; background-color: #008060; border-radius: 12px; display: flex; align-items: center; justify-content: center; animation-delay: 1.1s;">
+        <svg width="30" height="30" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 3H21V21H3V3Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M9 3V21M3 9H21M3 15H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+       </div><h3 class="mb-3" style="font-size: 1.5rem; font-weight: 600; color: #1a1a1a;">Sistema para la preparación de alimentos</h3><p style="color: #4a5568;">Preparación segura y eficiente de soluciones nutricionales para terapia intravenosa.</p></a> <!-- Solution 5 --> <a href="#aplicacion-medicamentos" class="solution-card p-8 rounded-xl animate-on-scroll" style="background-color: white; transition-delay: 0.5s; text-decoration: none; display: block; cursor: pointer;">
+       <div class="mb-6 floating-icon" style="width: 60px; height: 60px; background-color: #008060; border-radius: 12px; display: flex; align-items: center; justify-content: center; animation-delay: 1.3s;">
+        <svg width="30" height="30" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2V22M12 2C10.5 2 8 3.5 8 7C8 10.5 10.5 12 12 12M12 2C13.5 2 16 3.5 16 7C16 10.5 13.5 12 12 12M12 12C10.5 12 8 13.5 8 17C8 20.5 10.5 22 12 22M12 12C13.5 12 16 13.5 16 17C16 20.5 13.5 22 12 22" stroke="white" stroke-width="2" />
+        </svg>
+       </div><h3 class="mb-3" style="font-size: 1.5rem; font-weight: 600; color: #1a1a1a;">Aplicación de medicamentos</h3><p style="color: #4a5568;">Accesorios y dispositivos especializados para la administración de fármacos y terapia nutricional, incluyendo sistemas automatizados de difusión.</p></a> <!-- Solution 6 --> <a href="#prevencion-heridas" class="solution-card p-8 rounded-xl animate-on-scroll" style="background-color: white; transition-delay: 0.6s; text-decoration: none; display: block; cursor: pointer;">
+       <div class="mb-6 floating-icon" style="width: 60px; height: 60px; background-color: #008060; border-radius: 12px; display: flex; align-items: center; justify-content: center; animation-delay: 1.5s;">
+        <svg width="30" height="30" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.84 4.61C19.9 3.67 18.64 3.14 17.33 3.14C16.76 3.14 16.2 3.25 15.68 3.46L12 7.14L8.32 3.46C7.8 3.25 7.24 3.14 6.67 3.14C5.36 3.14 4.1 3.67 3.16 4.61C1.22 6.55 1.22 9.69 3.16 11.63L12 20.47L20.84 11.63C22.78 9.69 22.78 6.55 20.84 4.61Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+       </div><h3 class="mb-3" style="font-size: 1.5rem; font-weight: 600; color: #1a1a1a;">Prevención y curación de heridas</h3><p style="color: #4a5568;">Soluciones para el tratamiento adecuado de la piel y la cicatrización.</p></a>
+     </div><!-- Solution 7 - Centered -->
+     <div class="flex justify-center mt-8"><a href="#hidratacion" class="solution-card p-8 rounded-xl" style="background-color: white; max-width: 400px; width: 100%; text-decoration: none; display: block; cursor: pointer;">
+       <div class="mb-6" style="width: 60px; height: 60px; background-color: #008060; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+        <svg width="30" height="30" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.69L17 7.19V20H7V7.19L12 2.69Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M9 13C9 13 10 14 12 14C14 14 15 13 15 13" stroke="white" stroke-width="2" stroke-linecap="round" /> <circle cx="9.5" cy="10" r="0.5" fill="white" stroke="white" stroke-width="1.5" /> <circle cx="14.5" cy="10" r="0.5" fill="white" stroke="white" stroke-width="1.5" />
+        </svg>
+       </div><h3 class="mb-3" style="font-size: 1.5rem; font-weight: 600; color: #1a1a1a;">Hidratación</h3><p style="color: #4a5568;">Seguridad y confort en la administración de líquidos para mantener el equilibrio hídrico del paciente.</p></a>
+     </div>
+    </div>
+   </section>
+   <!-- Ecoflac Products Section -->
+   <section id="sistemas-cerrados" class="section-padding" style="background-color: white;">
+    <div class="w-full mx-auto px-6">
+     <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+       <h2 id="ecoflac-title" class="mb-4" style="font-size: 2.5rem; font-weight: 700; color: #1a1a1a;">Sistemas cerrados</h2>
+       <p id="ecoflac-description" class="max-w-3xl mx-auto" style="font-size: 1.25rem; color: #4a5568; line-height: 1.75;">Máxima protección en la manipulación de medicamentos citotóxicos. Los sistemas cerrados Ecoflac® garantizan la seguridad del personal sanitario y pacientes, eliminando el riesgo de exposición a sustancias peligrosas durante la preparación y administración.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Product 1 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src=".\assets\Ecoflac.png" alt="Ecoflac- Frasco de solución intravenosa" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'30\' y=\'20\' width=\'40\' height=\'60\' rx=\'4\' fill=\'#008060\' opacity=\'0.1\'/><rect x=\'35\' y=\'25\' width=\'30\' height=\'50\' rx=\'2\' fill=\'#008060\' opacity=\'0.2\'/><circle cx=\'50\' cy=\'35\' r=\'8\' fill=\'#008060\'/><rect x=\'40\' y=\'45\' width=\'20\' height=\'30\' rx=\'2\' fill=\'#008060\' opacity=\'0.3\'/><line x1=\'45\' y1=\'50\' x2=\'55\' y2=\'50\' stroke=\'#008060\' stroke-width=\'2\'/><line x1=\'45\' y1=\'60\' x2=\'55\' y2=\'60\' stroke=\'#008060\' stroke-width=\'2\'/><line x1=\'45\' y1=\'70\' x2=\'55\' y2=\'70\' stroke=\'#008060\' stroke-width=\'2\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;"> Ecoflac</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">Soluciones parenterales de gran volumen en un sistema de infusión cerrado, evita el riesgo de contaminación microbiana, por partículas, y contaminación química antes y durante la infusión. No necesita ventilación. Material de polietileno de baja densidad exento de PVC. Cuenta con dos puertos idénticos separados autosellables</p>
+       </div>
+       <!-- Product 2 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src=".\assets\isofudin-i7d6z32n-7s4.jpg" alt="Isofundin - Solución de perfusión intravenosa" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'25\' y=\'15\' width=\'50\' height=\'70\' rx=\'4\' fill=\'#008060\' opacity=\'0.1\'/><rect x=\'30\' y=\'20\' width=\'40\' height=\'60\' rx=\'2\' fill=\'#008060\' opacity=\'0.2\'/><circle cx=\'50\' cy=\'30\' r=\'10\' fill=\'#008060\'/><rect x=\'38\' y=\'45\' width=\'24\' height=\'35\' rx=\'2\' fill=\'#008060\' opacity=\'0.3\'/><circle cx=\'50\' cy=\'55\' r=\'5\' fill=\'#008060\' opacity=\'0.5\'/><circle cx=\'50\' cy=\'70\' r=\'3\' fill=\'#008060\' opacity=\'0.7\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Isofundin®</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">Solución para perfusión intravenosa, utilizada para el reemplazo de fluidos, se utiliza para la sustitución de pérdidas de fluidos extracelulares en caso de deshidratación isotónica, donde la acidosis esté presente o sea inminente.</p>
+        <!-- Tabla Presentación y Códigos -->
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem; margin-top: 12px;">
+            <thead>
+                <tr style="background-color: #e6f4ea; text-align: left;">
+                    <th style="padding: 8px; font-weight: 600; color: #1a1a1a;">Presentación</th>
+                    <th style="padding: 8px; font-weight: 600; color: #1a1a1a;">Código</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #e9ecef;">
+                    <td style="padding: 8px; color: #4a5568;">Frasco Ecoflac x 500 ml</td>
+                    <td style="padding: 8px; color: #4a5568;">1021120108107</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; color: #4a5568;">Frasco Ecoflac x 1000 ml</td>
+                    <td style="padding: 8px; color: #4a5568;">1021120108110</td>
+                </tr>
+            </tbody>
+        </table>
+       </div>
+       <!-- Product 3 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src=".\assets\gelofusine.jpg" alt="Gelofusine" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'28\' y=\'18\' width=\'44\' height=\'64\' rx=\'4\' fill=\'#008060\' opacity=\'0.1\'/><rect x=\'33\' y=\'23\' width=\'34\' height=\'54\' rx=\'2\' fill=\'#008060\' opacity=\'0.2\'/><path d=\'M50 30 L55 35 L50 40 L45 35 Z\' fill=\'#008060\'/><rect x=\'42\' y=\'48\' width=\'16\' height=\'25\' rx=\'2\' fill=\'#008060\' opacity=\'0.3\'/><rect x=\'45\' y=\'52\' width=\'10\' height=\'3\' fill=\'#008060\'/><rect x=\'45\' y=\'60\' width=\'10\' height=\'3\' fill=\'#008060\'/><rect x=\'45\' y=\'68\' width=\'10\' height=\'3\' fill=\'#008060\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;"> Gelofusine® 4% </h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">Sustituto del volumen coloidal para la profilaxis y el tratamiento de la hipovolemia absoluta y relativa. Gelofusine también puede utilizarse como sustituto del volumen coloidal para la profilaxis de:- Hipotensión (por ejemplo, en la inducción de anestesia de la médula espinal). - Hemodilución. - Circulación extracorpórea (máquina corazón-pulmón, hemodiálisis). - Como solución transportadora para varios medicamentos, p. Insulina</p>
+        <!-- Tabla Presentación y Códigos -->
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem; margin-top: 12px;">
+            <thead>
+                <tr style="background-color: #e6f4ea; text-align: left;">
+                    <th style="padding: 8px; font-weight: 600; color: #1a1a1a;">Presentación</th>
+                    <th style="padding: 8px; font-weight: 600; color: #1a1a1a;">Código</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #e9ecef;">
+                    <td style="padding: 8px; color: #4a5568;">Frasco Ecoflac x 500 ml</td>
+                    <td style="padding: 8px; color: #4a5568;">FE88513</td>
+                </tr>
+    
+            </tbody>
+        </table>
+
+       </div>
+       <!-- Product 4 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src=".\assets\ibuprofeno_ana.png" alt="ibuprofeno" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'30\' y=\'25\' width=\'40\' height=\'50\' rx=\'4\' fill=\'#008060\' opacity=\'0.1\'/><circle cx=\'50\' cy=\'40\' r=\'12\' fill=\'#008060\' opacity=\'0.3\'/><rect x=\'42\' y=\'55\' width=\'16\' height=\'15\' rx=\'2\' fill=\'#008060\' opacity=\'0.2\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Ibuprofeno </h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">Indicado en adultos para el tratamiento sintomático a corto plazo del dolor moderado agudo. En envase Ecoflac®, listo para usar</p>
+        <!-- Tabla Presentación y Códigos -->
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem; margin-top: 12px;">
+            <thead>
+                <tr style="background-color: #e6f4ea; text-align: left;">
+                    <th style="padding: 8px; font-weight: 600; color: #1a1a1a;">Presentación</th>
+                    <th style="padding: 8px; font-weight: 600; color: #1a1a1a;">Código</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #e9ecef;">
+                    <td style="padding: 8px; color: #4a5568;">Paracetamol 10MG/ML x 100ML</td>
+                    <td style="padding: 8px; color: #4a5568;">3656705</td>
+                </tr>
+
+                <tr style="border-bottom: 1px solid #e9ecef;">
+                    <td style="padding: 8px; color: #4a5568;">Paracetamol 10MG/ML x 50ML</td>
+                    <td style="padding: 8px; color: #4a5568;">3656710</td>
+                </tr>
+            </tbody>
+        </table>
+       </div>
+       <!-- Product 5 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src=".\assets\paracetamol.png" alt="Paracetamol" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'28\' y=\'20\' width=\'44\' height=\'60\' rx=\'4\' fill=\'#008060\' opacity=\'0.1\'/><circle cx=\'50\' cy=\'45\' r=\'15\' fill=\'#008060\' opacity=\'0.2\'/><path d=\'M45 45 L50 50 L55 40\' stroke=\'#008060\' stroke-width=\'3\' fill=\'none\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;"> Paracetamol</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">La primera línea del tratamiento del dolor* en envase Ecoflac® listo para usar, práctico y seguro</p>
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem; margin-top: 12px;">
+            <thead>
+                <tr style="background-color: #e6f4ea; text-align: left;">
+                    <th style="padding: 8px; font-weight: 600; color: #1a1a1a;">Presentación</th>
+                    <th style="padding: 8px; font-weight: 600; color: #1a1a1a;">Código</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #e9ecef;">
+                    <td style="padding: 8px; color: #4a5568;">Paracetamol 10MG/ML x 100ML</td>
+                    <td style="padding: 8px; color: #4a5568;">3656705</td>
+                </tr>
+
+                <tr style="border-bottom: 1px solid #e9ecef;">
+                    <td style="padding: 8px; color: #4a5568;">Paracetamol 10MG/ML x 50ML</td>
+                    <td style="padding: 8px; color: #4a5568;">3656710</td>
+                </tr>
+            </tbody>
+        </table>
+       </div>
+       <!-- Product 6 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src=".\assets\ondasetron_ana.png" alt="Ondansetron" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'32\' y=\'22\' width=\'36\' height=\'56\' rx=\'4\' fill=\'#008060\' opacity=\'0.1\'/><circle cx=\'50\' cy=\'50\' r=\'10\' stroke=\'#008060\' stroke-width=\'3\' fill=\'none\'/><line x1=\'50\' y1=\'30\' x2=\'50\' y2=\'40\' stroke=\'#008060\' stroke-width=\'2\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Ondansetrón</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">ndicado en prevención y tratamiento de náuseas y vómitos inducidos por quimioterapia y por radioterapia citotóxicas; y náuseas y vómitos posoperatorios.</p>
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem; margin-top: 12px;">
+            <thead>
+                <tr style="background-color: #e6f4ea; text-align: left;">
+                    <th style="padding: 8px; font-weight: 600; color: #1a1a1a;">Presentación</th>
+                    <th style="padding: 8px; font-weight: 600; color: #1a1a1a;">Código</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #e9ecef;">
+                    <td style="padding: 8px; color: #4a5568;">Ondansetrón 8mg/100mL</td>
+                    <td style="padding: 8px; color: #4a5568;">3656726</td>
+                </tr>
+
+            </tbody>
+        </table>
+       </div>
+      </div>
+      <!-- Call to action -->
+      <div class="mt-12 text-center">
+       <p class="mb-6" style="font-size: 1.125rem; color: #4a5568;">¿Necesitas asesoría para elegir el sistema Ecoflac® adecuado para tu institución?</p><a href="#formulario" class="btn-primary px-8 py-3 rounded-lg font-semibold" style="background-color: #008060; color: white; border: none; cursor: pointer; text-decoration: none; display: inline-block;"> Contacta con un especialista </a>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- Nutrición Enteral Section -->
+   <section id="nutricion-enteral" class="section-padding" style="background-color: #f8f9fa;">
+    <div class="w-full mx-auto px-6">
+     <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+       <h2 class="mb-4" style="font-size: 2.5rem; font-weight: 700; color: #1a1a1a;">Nutrición enteral</h2>
+       <p class="max-w-3xl mx-auto" style="font-size: 1.25rem; color: #4a5568; line-height: 1.75;">Prevención de desnutrición y caquexia durante el tratamiento oncológico.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+       <!-- Product 1 -->
+        <div class="solution-card p-6 rounded-xl" style="background-color: white; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src=".\assets\nutricional\enbrace_energy.jpg" alt="ENbrace Energy HP" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><circle cx=\'50\' cy=\'35\' r=\'20\' fill=\'#008060\' opacity=\'0.1\'/><circle cx=\'50\' cy=\'35\' r=\'15\' fill=\'#008060\' opacity=\'0.2\'/><rect x=\'45\' y=\'50\' width=\'10\' height=\'30\' fill=\'#008060\' opacity=\'0.3\'/><path d=\'M40 65 Q50 75 60 65\' stroke=\'#008060\' stroke-width=\'3\' fill=\'none\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">ENbrace® Energy HP</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;"> alimento nutricionalmente completo, enriquecido con aceite de pescado, para fines médicos especiales. Hipercalórico, Hiperproteico.</p>
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem; margin-top: 12px;">
+            <thead>
+                <tr style="background-color: #e6f4ea; text-align: left;">
+                    <th style="padding: 8px; font-weight: 600; color: #1a1a1a;">Presentación</th>
+                    <th style="padding: 8px; font-weight: 600; color: #1a1a1a;">Código</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #e9ecef;">
+                    <td style="padding: 8px; color: #4a5568;">ENbrace Energy HP</td>
+                    <td style="padding: 8px; color: #4a5568;">3571774</td>
+                </tr>
+
+            </tbody>
+        </table>
+       </div>
+        <!-- Product 2 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: white; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src=".\assets\nutricional\enbrace standard.jpg" alt="ENbrace Standard" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'35\' y=\'20\' width=\'30\' height=\'50\' rx=\'3\' fill=\'#008060\' opacity=\'0.2\'/><circle cx=\'50\' cy=\'30\' r=\'8\' fill=\'#008060\'/><rect x=\'42\' y=\'40\' width=\'16\' height=\'25\' fill=\'#008060\' opacity=\'0.3\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">ENbrace® Standard</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;"> Alimento completo, normocalórico, isotónico, enriquecido con aceite de pescado, sin fibra.</p>
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem; margin-top: 12px;">
+            <thead>
+                <tr style="background-color: #e6f4ea; text-align: left;">
+                    <th style="padding: 8px; font-weight: 600; color: #1a1a1a;">Presentación</th>
+                    <th style="padding: 8px; font-weight: 600; color: #1a1a1a;">Código</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #e9ecef;">
+                    <td style="padding: 8px; color: #4a5568;">ENbrace® Standard sabor neutro x 500 mL</td>
+                    <td style="padding: 8px; color: #4a5568;">3571779</td>
+                </tr>
+
+            </tbody>
+        </table>
+       </div>
+       <!-- Product 3 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: white; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src=".\assets\nutricional\embrace_d.jpg" alt="Enteroport Plus Pump - Bomba de nutrición enteral" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'30\' y=\'25\' width=\'40\' height=\'50\' rx=\'5\' fill=\'#008060\' opacity=\'0.1\'/><rect x=\'35\' y=\'30\' width=\'30\' height=\'40\' rx=\'3\' fill=\'#008060\' opacity=\'0.2\'/><circle cx=\'50\' cy=\'50\' r=\'10\' fill=\'#008060\' opacity=\'0.4\'/><path d=\'M40 50 L50 60 L60 50\' stroke=\'#008060\' stroke-width=\'2\' fill=\'none\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">ENbrace® D</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;"> alimento nutricionalmente completo, isotónico, enriquecido con aceite de pescado y fibra para fines médicos especiales. Indicado para pacientes con intolerancia a la glucosa y/o diabetes.</p>
+       <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem; margin-top: 12px;">
+            <thead>
+                <tr style="background-color: #e6f4ea; text-align: left;">
+                    <th style="padding: 8px; font-weight: 600; color: #1a1a1a;">Presentación</th>
+                    <th style="padding: 8px; font-weight: 600; color: #1a1a1a;">Código</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #e9ecef;">
+                    <td style="padding: 8px; color: #4a5568;">ENbrace D neutral x 500 ml</td>
+                    <td style="padding: 8px; color: #4a5568;">3571773</td>
+                </tr>
+
+            </tbody>
+        </table>
+       </div>
+       <!-- Product 4 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: white; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=400&amp;h=400&amp;fit=crop" alt="Producto nutrición 4" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'35\' y=\'25\' width=\'30\' height=\'50\' rx=\'4\' fill=\'#008060\' opacity=\'0.15\'/><circle cx=\'50\' cy=\'40\' r=\'10\' fill=\'#008060\' opacity=\'0.3\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">ENbrace® Standard Fiber</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">Descripción del producto 4</p>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+       <!-- Product 5 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: white; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1556816723-1ce827b9cfbb?w=400&amp;h=400&amp;fit=crop" alt="Producto nutrición 5" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><ellipse cx=\'50\' cy=\'45\' rx=\'18\' ry=\'25\' fill=\'#008060\' opacity=\'0.2\'/><circle cx=\'50\' cy=\'35\' r=\'8\' fill=\'#008060\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Nutrición 5</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">Descripción del producto 5</p>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+         <!-- Product 6 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: white; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=400&amp;h=400&amp;fit=crop" alt="Producto nutrición 6" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'38\' y=\'28\' width=\'24\' height=\'44\' rx=\'3\' fill=\'#008060\' opacity=\'0.2\'/><circle cx=\'50\' cy=\'45\' r=\'7\' fill=\'#008060\' opacity=\'0.4\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Nutrición 6</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">Descripción del producto 6</p>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+         <!-- Product 7 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: white; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&amp;h=400&amp;fit=crop" alt="Producto nutrición 7" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'32\' y=\'24\' width=\'36\' height=\'52\' rx=\'4\' fill=\'#008060\' opacity=\'0.15\'/><path d=\'M45 40 L50 45 L55 40\' stroke=\'#008060\' stroke-width=\'3\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Nutrición 7</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">Descripción del producto 7</p>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 8 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: white; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1583912267550-83b0fcccd5cf?w=400&amp;h=400&amp;fit=crop" alt="Producto nutrición 8" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><circle cx=\'50\' cy=\'40\' r=\'15\' fill=\'#008060\' opacity=\'0.2\'/><rect x=\'42\' y=\'52\' width=\'16\' height=\'20\' rx=\'2\' fill=\'#008060\' opacity=\'0.25\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Nutrición 8</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">Descripción del producto 8</p>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+         <!-- Product 9 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: white; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&amp;h=400&amp;fit=crop" alt="Producto nutrición 9" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><ellipse cx=\'50\' cy=\'50\' rx=\'20\' ry=\'28\' fill=\'#008060\' opacity=\'0.15\'/><circle cx=\'50\' cy=\'42\' r=\'9\' fill=\'#008060\' opacity=\'0.35\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Nutrición 9</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">Descripción del producto 9</p>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- Comodidad del Paciente Section -->
+   <section id="comodidad-paciente" class="section-padding" style="background-color: white;">
+    <div class="w-full mx-auto px-6">
+     <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+       <h2 class="mb-4" style="font-size: 2.5rem; font-weight: 700; color: #1a1a1a;">Comodidad del paciente</h2>
+       <p class="max-w-3xl mx-auto" style="font-size: 1.25rem; color: #4a5568; line-height: 1.75;">Dispositivos para acceso intravenoso seguro y cómodo.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+         <!-- Product 1 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=400&amp;h=400&amp;fit=crop" alt="Introcan Safety - Catéter IV periférico" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'25\' y=\'40\' width=\'50\' height=\'8\' rx=\'4\' fill=\'#008060\' opacity=\'0.2\'/><circle cx=\'30\' cy=\'44\' r=\'6\' fill=\'#008060\'/><rect x=\'35\' y=\'40\' width=\'30\' height=\'8\' fill=\'#008060\' opacity=\'0.3\'/><path d=\'M65 44 L75 44\' stroke=\'#008060\' stroke-width=\'3\'/></svg>';">
+        </div>
+        <h3 class="mb-2" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Introcan® Safety</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Catéter IV periférico</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> 4253604-04</p>
+       </div>
+        <!-- Product 2 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=400&amp;h=400&amp;fit=crop" alt="Certofix Duo - Catéter venoso central" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><line x1=\'50\' y1=\'20\' x2=\'50\' y2=\'60\' stroke=\'#008060\' stroke-width=\'4\' opacity=\'0.3\'/><circle cx=\'50\' cy=\'25\' r=\'8\' fill=\'#008060\' opacity=\'0.5\'/><circle cx=\'50\' cy=\'45\' r=\'6\' fill=\'#008060\' opacity=\'0.4\'/><rect x=\'40\' y=\'60\' width=\'20\' height=\'15\' rx=\'2\' fill=\'#008060\' opacity=\'0.2\'/></svg>';">
+        </div>
+        <h3 class="mb-2" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Certofix® Duo</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Catéter venoso central</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> 4167385-07</p>
+       </div>
+        <!-- Product 3 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=400&amp;h=400&amp;fit=crop" alt="Celsite - Puertos de acceso venoso" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><circle cx=\'50\' cy=\'50\' r=\'20\' fill=\'#008060\' opacity=\'0.1\'/><circle cx=\'50\' cy=\'50\' r=\'15\' fill=\'#008060\' opacity=\'0.2\'/><circle cx=\'50\' cy=\'50\' r=\'8\' fill=\'#008060\'/><line x1=\'50\' y1=\'30\' x2=\'50\' y2=\'20\' stroke=\'#008060\' stroke-width=\'2\'/></svg>';">
+        </div>
+        <h3 class="mb-2" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Celsite®</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Puertos de acceso venoso</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> 44304250</p>
+       </div>
+        <!-- Product 4 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=400&amp;h=400&amp;fit=crop" alt="Producto comodidad 4" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'30\' y=\'35\' width=\'40\' height=\'30\' rx=\'4\' fill=\'#008060\' opacity=\'0.15\'/><circle cx=\'50\' cy=\'50\' r=\'8\' fill=\'#008060\'/></svg>';">
+        </div>
+        <h3 class="mb-2" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Comodidad 4</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 5 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&amp;h=400&amp;fit=crop" alt="Producto comodidad 5" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><line x1=\'30\' y1=\'50\' x2=\'70\' y2=\'50\' stroke=\'#008060\' stroke-width=\'6\' opacity=\'0.3\'/></svg>';">
+        </div>
+        <h3 class="mb-2" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Comodidad 5</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+     <!-- Product 6 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1583912267550-83b0fcccd5cf?w=400&amp;h=400&amp;fit=crop" alt="Producto comodidad 6" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><circle cx=\'50\' cy=\'45\' r=\'18\' fill=\'#008060\' opacity=\'0.2\'/></svg>';">
+        </div>
+        <h3 class="mb-2" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Comodidad 6</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 7 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1556816723-1ce827b9cfbb?w=400&amp;h=400&amp;fit=crop" alt="Producto comodidad 7" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'35\' y=\'30\' width=\'30\' height=\'40\' rx=\'3\' fill=\'#008060\' opacity=\'0.2\'/></svg>';">
+        </div>
+        <h3 class="mb-2" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Comodidad 7</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 8 -->   
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&amp;h=400&amp;fit=crop" alt="Producto comodidad 8" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M40 35 L60 35 L60 65 L40 65 Z\' fill=\'#008060\' opacity=\'0.15\'/></svg>';">
+        </div>
+        <h3 class="mb-2" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Comodidad 8</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 9 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=400&amp;h=400&amp;fit=crop" alt="Producto comodidad 9" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><ellipse cx=\'50\' cy=\'50\' rx=\'20\' ry=\'25\' fill=\'#008060\' opacity=\'0.2\'/></svg>';">
+        </div>
+        <h3 class="mb-2" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Comodidad 9</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- Preparación de Medicamentos Section -->
+   <section id="preparacion-medicamentos" class="section-padding" style="background-color: #f8f9fa;">
+    <div class="w-full mx-auto px-6">
+     <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+       <h2 class="mb-4" style="font-size: 2.5rem; font-weight: 700; color: #1a1a1a;">Preparación de medicamentos</h2>
+       <p class="max-w-3xl mx-auto" style="font-size: 1.25rem; color: #4a5568; line-height: 1.75;">Sistemas cerrados para preparación segura.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+         <!-- Product 1 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: white; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=400&amp;h=400&amp;fit=crop" alt="Mini-Spike 2 - Dispositivo para viales" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'40\' y=\'20\' width=\'20\' height=\'40\' rx=\'3\' fill=\'#008060\' opacity=\'0.2\'/><circle cx=\'50\' cy=\'25\' r=\'5\' fill=\'#008060\'/><line x1=\'50\' y1=\'60\' x2=\'50\' y2=\'75\' stroke=\'#008060\' stroke-width=\'3\'/><circle cx=\'50\' cy=\'77\' r=\'3\' fill=\'#008060\' opacity=\'0.5\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Mini-Spike 2</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">Dispositivo para viales</p>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Dispositivo para viales</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> 4550591</p>
+       </div>
+         <!-- Product 2 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: white; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1582719366707-667f32c5e3e4?w=400&amp;h=400&amp;fit=crop" alt="Cyto-Set Mix - Sistema fotosensible" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'30\' y=\'25\' width=\'40\' height=\'50\' rx=\'4\' fill=\'#008060\' opacity=\'0.1\'/><path d=\'M35 35 L65 35 L65 65 L35 65 Z\' stroke=\'#008060\' stroke-width=\'2\' fill=\'none\'/><circle cx=\'50\' cy=\'50\' r=\'8\' fill=\'#008060\' opacity=\'0.4\'/><line x1=\'42\' y1=\'50\' x2=\'58\' y2=\'50\' stroke=\'#008060\' stroke-width=\'2\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Cyto-Set® Mix</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">Sistema fotosensible</p>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Sistema fotosensible</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> A2906N</p>
+       </div>
+        <!-- Product 3 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: white; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1563213126-a4273aed2016?w=400&amp;h=400&amp;fit=crop" alt="Easypump II LT - Bomba elastomérica" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><ellipse cx=\'50\' cy=\'50\' rx=\'20\' ry=\'30\' fill=\'#008060\' opacity=\'0.2\'/><ellipse cx=\'50\' cy=\'45\' rx=\'15\' ry=\'20\' fill=\'#008060\' opacity=\'0.3\'/><circle cx=\'50\' cy=\'30\' r=\'8\' fill=\'#008060\'/><line x1=\'50\' y1=\'65\' x2=\'50\' y2=\'75\' stroke=\'#008060\' stroke-width=\'2\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Easypump® II LT</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">Bomba elastomérica</p>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Bomba elastomérica</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> 4540010-07</p>
+       </div>
+        <!-- Product 4 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: white; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&amp;h=400&amp;fit=crop" alt="Producto preparación 4" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'35\' y=\'30\' width=\'30\' height=\'40\' rx=\'3\' fill=\'#008060\' opacity=\'0.2\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Preparación 4</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">Descripción del producto 4</p>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 5 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: white; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&amp;h=400&amp;fit=crop" alt="Producto preparación 5" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><circle cx=\'50\' cy=\'50\' r=\'20\' fill=\'#008060\' opacity=\'0.2\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Preparación 5</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">Descripción del producto 5</p>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- Aplicación de Medicamentos Section -->
+   <section id="aplicacion-medicamentos" class="section-padding" style="background-color: white;">
+    <div class="w-full mx-auto px-6">
+     <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+       <h2 class="mb-4" style="font-size: 2.5rem; font-weight: 700; color: #1a1a1a;">Aplicación de medicamentos</h2>
+       <p class="max-w-3xl mx-auto" style="font-size: 1.25rem; color: #4a5568; line-height: 1.75;">Accesorios y dispositivos especializados.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Product 1 -->
+        <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1583912267550-83b0fcccd5cf?w=400&amp;h=400&amp;fit=crop" alt="Discofix C - Sistema cerrado de conexión" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><circle cx=\'35\' cy=\'50\' r=\'12\' fill=\'#008060\' opacity=\'0.2\'/><circle cx=\'65\' cy=\'50\' r=\'12\' fill=\'#008060\' opacity=\'0.2\'/><line x1=\'35\' y1=\'50\' x2=\'65\' y2=\'50\' stroke=\'#008060\' stroke-width=\'4\'/><circle cx=\'50\' cy=\'50\' r=\'8\' fill=\'#008060\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Discofix® C</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">Sistema cerrado</p>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Sistema cerrado</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> 16494CSF</p>
+       </div>
+        <!-- Product 2 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=400&amp;h=400&amp;fit=crop" alt="Infusomat Space Plus - Bomba de infusión" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'25\' y=\'30\' width=\'50\' height=\'40\' rx=\'5\' fill=\'#008060\' opacity=\'0.1\'/><rect x=\'30\' y=\'35\' width=\'40\' height=\'30\' rx=\'3\' fill=\'#008060\' opacity=\'0.2\'/><rect x=\'40\' y=\'45\' width=\'20\' height=\'10\' rx=\'2\' fill=\'#008060\'/><circle cx=\'35\' cy=\'50\' r=\'3\' fill=\'#008060\' opacity=\'0.5\'/><circle cx=\'65\' cy=\'50\' r=\'3\' fill=\'#008060\' opacity=\'0.5\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Infusomat® Space Plus</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">Bomba de infusión</p>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Bomba de infusión</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> 8719050</p>
+       </div>
+        <!-- Product 3 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&amp;h=400&amp;fit=crop" alt="Filtros Intrapur - Filtro antibacteriano" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><circle cx=\'50\' cy=\'45\' r=\'18\' fill=\'#008060\' opacity=\'0.1\'/><circle cx=\'50\' cy=\'45\' r=\'12\' fill=\'#008060\' opacity=\'0.2\'/><path d=\'M40 45 L45 50 L60 35\' stroke=\'#008060\' stroke-width=\'3\' fill=\'none\'/><line x1=\'50\' y1=\'63\' x2=\'50\' y2=\'75\' stroke=\'#008060\' stroke-width=\'2\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Filtros Intrapur®</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">Filtro antibacteriano</p>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Filtro antibacteriano</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> 4099800</p>
+       </div>
+        <!-- Product 4 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1556816723-1ce827b9cfbb?w=400&amp;h=400&amp;fit=crop" alt="Producto 4" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'35\' y=\'35\' width=\'30\' height=\'30\' fill=\'#008060\' opacity=\'0.2\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Aplicación 4</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 5 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&amp;h=400&amp;fit=crop" alt="Producto 5" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><circle cx=\'50\' cy=\'50\' r=\'18\' fill=\'#008060\' opacity=\'0.2\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Aplicación 5</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 6 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=400&amp;h=400&amp;fit=crop" alt="Producto 6" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><line x1=\'30\' y1=\'50\' x2=\'70\' y2=\'50\' stroke=\'#008060\' stroke-width=\'5\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Aplicación 6</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 7 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=400&amp;h=400&amp;fit=crop" alt="Producto 7" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><ellipse cx=\'50\' cy=\'50\' rx=\'18\' ry=\'25\' fill=\'#008060\' opacity=\'0.2\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Aplicación 7</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 8 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=400&amp;h=400&amp;fit=crop" alt="Producto 8" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M40 40 L60 40 L60 60 L40 60 Z\' fill=\'#008060\' opacity=\'0.15\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Aplicación 8</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 9 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=400&amp;h=400&amp;fit=crop" alt="Producto 9" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'38\' y=\'35\' width=\'24\' height=\'30\' rx=\'3\' fill=\'#008060\' opacity=\'0.2\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Aplicación 9</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 10 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&amp;h=400&amp;fit=crop" alt="Producto 10" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><circle cx=\'50\' cy=\'45\' r=\'16\' fill=\'#008060\' opacity=\'0.25\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Aplicación 10</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 11 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1582719366707-667f32c5e3e4?w=400&amp;h=400&amp;fit=crop" alt="Producto 11" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'35\' y=\'30\' width=\'30\' height=\'40\' fill=\'#008060\' opacity=\'0.15\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Aplicación 11</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 12 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1563213126-a4273aed2016?w=400&amp;h=400&amp;fit=crop" alt="Producto 12" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><ellipse cx=\'50\' cy=\'48\' rx=\'20\' ry=\'26\' fill=\'#008060\' opacity=\'0.2\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Aplicación 12</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 13 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=400&amp;h=400&amp;fit=crop" alt="Producto 13" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M42 38 L58 38 L58 62 L42 62 Z\' fill=\'#008060\' opacity=\'0.18\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Aplicación 13</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 14 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&amp;h=400&amp;fit=crop" alt="Producto 14" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><circle cx=\'50\' cy=\'50\' r=\'17\' fill=\'#008060\' opacity=\'0.22\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Aplicación 14</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 15 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1585435557343-3b092031a831?w=400&amp;h=400&amp;fit=crop" alt="Producto 15" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'37\' y=\'32\' width=\'26\' height=\'36\' rx=\'2\' fill=\'#008060\' opacity=\'0.2\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Aplicación 15</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 16 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1587334207988-c6ab1c058a1a?w=400&amp;h=400&amp;fit=crop" alt="Producto 16" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><ellipse cx=\'50\' cy=\'47\' rx=\'19\' ry=\'24\' fill=\'#008060\' opacity=\'0.18\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Aplicación 16</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+     <!-- Product 17 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=400&amp;h=400&amp;fit=crop" alt="Producto 17" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M40 42 L60 42 L60 58 L40 58 Z\' fill=\'#008060\' opacity=\'0.16\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Aplicación 17</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 18 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=400&amp;h=400&amp;fit=crop" alt="Producto 18" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><circle cx=\'50\' cy=\'49\' r=\'19\' fill=\'#008060\' opacity=\'0.19\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Aplicación 18</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 19 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1625801379582-5f89aca94b18?w=400&amp;h=400&amp;fit=crop" alt="Producto 19" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'36\' y=\'34\' width=\'28\' height=\'32\' rx=\'2\' fill=\'#008060\' opacity=\'0.21\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Aplicación 19</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 20 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&amp;h=400&amp;fit=crop" alt="Producto 20" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><ellipse cx=\'50\' cy=\'50\' rx=\'22\' ry=\'28\' fill=\'#008060\' opacity=\'0.17\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Aplicación 20</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 21 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=400&amp;h=400&amp;fit=crop" alt="Producto 21" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M40 36 L60 36 L60 64 L40 64 Z\' fill=\'#008060\' opacity=\'0.19\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Aplicación 21</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 22 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&amp;h=400&amp;fit=crop" alt="Producto 22" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><circle cx=\'50\' cy=\'48\' r=\'21\' fill=\'#008060\' opacity=\'0.16\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Aplicación 22</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+        <!-- Product 23 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1583912267550-83b0fcccd5cf?w=400&amp;h=400&amp;fit=crop" alt="Producto 23" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'38\' y=\'32\' width=\'24\' height=\'36\' rx=\'3\' fill=\'#008060\' opacity=\'0.18\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Aplicación 23</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- Prevención y Curación de Heridas Section -->
+   <section id="prevencion-heridas" class="section-padding" style="background-color: #f8f9fa;">
+    <div class="w-full mx-auto px-6">
+     <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+       <h2 class="mb-4" style="font-size: 2.5rem; font-weight: 700; color: #1a1a1a;">Prevención y curación de heridas</h2>
+       <p class="max-w-3xl mx-auto" style="font-size: 1.25rem; color: #4a5568; line-height: 1.75;">Tratamiento adecuado de la piel y heridas.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+         <!-- Product 1 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: white; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1556816723-1ce827b9cfbb?w=400&amp;h=400&amp;fit=crop" alt="Prontosan Wound Gel - Gel para tratamiento de heridas" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M50 25 C30 25 30 40 50 40 C70 40 70 25 50 25 Z\' fill=\'#008060\' opacity=\'0.2\'/><ellipse cx=\'50\' cy=\'55\' rx=\'25\' ry=\'20\' fill=\'#008060\' opacity=\'0.1\'/><circle cx=\'50\' cy=\'50\' r=\'15\' fill=\'#008060\' opacity=\'0.3\'/><path d=\'M45 50 L48 53 L55 46\' stroke=\'#008060\' stroke-width=\'2\' fill=\'none\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Prontosan® Wound Gel</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">Gel para heridas</p>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Gel para heridas</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> 400590</p>
+       </div>
+         <!-- Product 2 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: white; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&amp;h=400&amp;fit=crop" alt="Linovera Aceite - Aceite para prevención de lesiones cutáneas" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><ellipse cx=\'50\' cy=\'50\' rx=\'20\' ry=\'30\' fill=\'#008060\' opacity=\'0.1\'/><ellipse cx=\'50\' cy=\'48\' rx=\'15\' ry=\'22\' fill=\'#008060\' opacity=\'0.2\'/><path d=\'M50 30 Q45 40 50 50 Q55 40 50 30\' fill=\'#008060\' opacity=\'0.4\'/><circle cx=\'50\' cy=\'55\' r=\'5\' fill=\'#008060\' opacity=\'0.3\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Linovera® Aceite</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">Prevención de lesiones</p>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Prevención de lesiones</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> 488354</p>
+       </div>
+            <!-- Product 3 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: white; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1585435557343-3b092031a831?w=400&amp;h=400&amp;fit=crop" alt="Askina Barrier Film Spray - Protección cutánea en spray" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'30\' y=\'35\' width=\'40\' height=\'30\' rx=\'3\' fill=\'#008060\' opacity=\'0.1\'/><path d=\'M35 45 L40 50 L35 55 M45 45 L50 50 L45 55 M55 45 L60 50 L55 55\' stroke=\'#008060\' stroke-width=\'2\' opacity=\'0.4\'/><circle cx=\'50\' cy=\'50\' r=\'8\' stroke=\'#008060\' stroke-width=\'2\' fill=\'none\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Askina® Barrier Film Spray</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem; line-height: 1.5;">Protección cutánea</p>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Protección cutánea</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> 5036</p>
+       </div>
+            <!-- Product 4 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: white; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=400&amp;h=400&amp;fit=crop" alt="Producto herida 4" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'35\' y=\'35\' width=\'30\' height=\'30\' rx=\'3\' fill=\'#008060\' opacity=\'0.2\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Heridas 4</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+            <!-- Product 5 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: white; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=400&amp;h=400&amp;fit=crop" alt="Producto herida 5" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><circle cx=\'50\' cy=\'50\' r=\'18\' fill=\'#008060\' opacity=\'0.2\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Heridas 5</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+            <!-- Product 6 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: white; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=400&amp;h=400&amp;fit=crop" alt="Producto herida 6" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><ellipse cx=\'50\' cy=\'50\' rx=\'18\' ry=\'24\' fill=\'#008060\' opacity=\'0.2\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Heridas 6</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+            <!-- Product 7 -->
+       <div class="solution-card p-6 rounded-xl" style="background-color: white; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=400&amp;h=400&amp;fit=crop" alt="Producto herida 7" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'36\' y=\'36\' width=\'28\' height=\'28\' rx=\'2\' fill=\'#008060\' opacity=\'0.2\'/></svg>';">
+        </div>
+        <h3 class="mb-3" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Heridas 7</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- Hidratación Section -->
+   <section id="hidratacion" class="section-padding" style="background-color: white;">
+    <div class="w-full mx-auto px-6">
+     <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+       <h2 class="mb-4" style="font-size: 2.5rem; font-weight: 700; color: #1a1a1a;">Hidratación</h2>
+       <p class="max-w-3xl mx-auto" style="font-size: 1.25rem; color: #4a5568; line-height: 1.75;">Soluciones para mantener el equilibrio hídrico.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=400&amp;h=400&amp;fit=crop" alt="Frutti Ped - Bebida rehidratante pediátrica" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><circle cx=\'50\' cy=\'35\' r=\'15\' fill=\'#008060\' opacity=\'0.1\'/><path d=\'M50 20 Q40 30 40 40 Q40 50 50 55 Q60 50 60 40 Q60 30 50 20 Z\' fill=\'#008060\' opacity=\'0.3\'/><circle cx=\'35\' cy=\'60\' r=\'5\' fill=\'#008060\' opacity=\'0.2\'/><circle cx=\'50\' cy=\'65\' r=\'5\' fill=\'#008060\' opacity=\'0.2\'/><circle cx=\'65\' cy=\'60\' r=\'5\' fill=\'#008060\' opacity=\'0.2\'/></svg>';">
+        </div>
+        <h3 class="mb-2" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Frutti Ped</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Bebida rehidratante</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1587334207988-c6ab1c058a1a?w=400&amp;h=400&amp;fit=crop" alt="Fruttiflex 50 Fresa - Bebida con electrolitos sabor fresa" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'35\' y=\'20\' width=\'30\' height=\'55\' rx=\'15\' fill=\'#008060\' opacity=\'0.1\'/><rect x=\'38\' y=\'25\' width=\'24\' height=\'45\' rx=\'12\' fill=\'#008060\' opacity=\'0.2\'/><circle cx=\'50\' cy=\'40\' r=\'8\' fill=\'#008060\' opacity=\'0.4\'/><path d=\'M42 55 L50 50 L58 55\' fill=\'#008060\' opacity=\'0.3\'/></svg>';">
+        </div>
+        <h3 class="mb-2" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Fruttiflex® 50 Fresa</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Bebida con electrolitos</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=400&amp;h=400&amp;fit=crop" alt="Fruttiflex 50 Manzana - Bebida con electrolitos sabor manzana" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'35\' y=\'20\' width=\'30\' height=\'55\' rx=\'15\' fill=\'#008060\' opacity=\'0.1\'/><rect x=\'38\' y=\'25\' width=\'24\' height=\'45\' rx=\'12\' fill=\'#008060\' opacity=\'0.2\'/><circle cx=\'50\' cy=\'35\' r=\'6\' fill=\'#008060\' opacity=\'0.5\'/><circle cx=\'45\' cy=\'50\' r=\'4\' fill=\'#008060\' opacity=\'0.4\'/><circle cx=\'55\' cy=\'50\' r=\'4\' fill=\'#008060\' opacity=\'0.4\'/></svg>';">
+        </div>
+        <h3 class="mb-2" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Fruttiflex® 50 Manzana</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Bebida con electrolitos</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1625801379582-5f89aca94b18?w=400&amp;h=400&amp;fit=crop" alt="Producto hidratación 4" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'36\' y=\'22\' width=\'28\' height=\'56\' rx=\'14\' fill=\'#008060\' opacity=\'0.15\'/></svg>';">
+        </div>
+        <h3 class="mb-2" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Hidratación 4</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+       <div class="solution-card p-6 rounded-xl" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+        <div class="mb-4" style="background-color: white; border-radius: 8px; padding: 24px; display: flex; align-items: center; justify-content: center; height: 200px; overflow: hidden;"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&amp;h=400&amp;fit=crop" alt="Producto hidratación 5" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none'; this.parentElement.innerHTML='<svg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><circle cx=\'50\' cy=\'48\' r=\'20\' fill=\'#008060\' opacity=\'0.18\'/></svg>';">
+        </div>
+        <h3 class="mb-2" style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Producto Hidratación 5</h3>
+        <p class="mb-2" style="color: #4a5568; font-size: 0.875rem;"><strong>Presentación:</strong> Por definir</p>
+        <p style="color: #4a5568; font-size: 0.875rem;"><strong>Código:</strong> -</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- Benefits Section -->
+   <section id="beneficios" class="section-padding" style="background-color: #f8f9fa;">
+    <div class="w-full mx-auto px-6">
+     <div class="max-w-6xl mx-auto">
+      <h2 id="benefits-title" class="text-center mb-16" style="font-size: 2.5rem; font-weight: 700; color: #1a1a1a;">¿Por qué elegir B. Braun?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+       <div class="benefit-card text-center p-8" style="background-color: white; border-top: 4px solid #008060; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+        <h3 class="mb-3" style="font-size: 1.125rem; font-weight: 700; color: #1a1a1a;">Sistemas Cerrados</h3>
+        <p style="color: #4a5568; font-size: 0.875rem;">Máxima protección en la manipulación de citotóxicos para personal y pacientes</p>
+       </div>
+       <div class="benefit-card text-center p-8" style="background-color: white; border-top: 4px solid #008060; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+        <h3 class="mb-3" style="font-size: 1.125rem; font-weight: 700; color: #1a1a1a;">Reducción de Extravasación</h3>
+        <p style="color: #4a5568; font-size: 0.875rem;">Tecnología avanzada para prevenir complicaciones durante la infusión</p>
+       </div>
+       <div class="benefit-card text-center p-8" style="background-color: white; border-top: 4px solid #008060; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+        <h3 class="mb-3" style="font-size: 1.125rem; font-weight: 700; color: #1a1a1a;">Materiales Sin PVC</h3>
+        <p style="color: #4a5568; font-size: 0.875rem;">Compromiso con materiales seguros y responsables ambientalmente</p>
+       </div>
+       <div class="benefit-card text-center p-8" style="background-color: white; border-top: 4px solid #008060; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+        <h3 class="mb-3" style="font-size: 1.125rem; font-weight: 700; color: #1a1a1a;">Protección del Personal</h3>
+        <p style="color: #4a5568; font-size: 0.875rem;">Dispositivos diseñados para garantizar la seguridad del equipo médico</p>
+       </div>
+       <div class="benefit-card text-center p-8" style="background-color: white; border-top: 4px solid #008060; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+        <h3 class="mb-3" style="font-size: 1.125rem; font-weight: 700; color: #1a1a1a;">Trazabilidad Total</h3>
+        <p style="color: #4a5568; font-size: 0.875rem;">Control completo del proceso terapéutico de inicio a fin</p>
+       </div>
+       <div class="benefit-card text-center p-8" style="background-color: white; border-top: 4px solid #008060; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+        <h3 class="mb-3" style="font-size: 1.125rem; font-weight: 700; color: #1a1a1a;">Marca L����der Global</h3>
+        <p style="color: #4a5568; font-size: 0.875rem;">Experiencia y confianza respaldada por presencia mundial</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- Testimonials Section -->
+   <section class="section-padding" style="background: linear-gradient(135deg, #008060 0%, #006b52 100%);">
+    <div class="content-wrapper text-center">
+     <p id="testimonial-text" class="mb-6" style="font-size: 1.75rem; color: white; font-weight: 300; font-style: italic;">"Seccion testimonios en construcción"</p><button class="px-8 py-3 rounded-lg font-semibold" style="background-color: white; color: #008060; border: none; cursor: pointer; transition: all 0.3s ease;"> Ver historias reales </button>
+    </div>
+   </section>
+   <!-- Final CTA Section -->
+   <section id="formulario" class="section-padding" style="background-color: #f8f9fa;">
+    <div class="w-full mx-auto px-6">
+     <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12">
+       <h2 id="final-cta-title" class="mb-4" style="font-size: 2.5rem; font-weight: 700; color: #1a1a1a;">Protege a tu equipo y pacientes hoy mismo.</h2>
+       <p style="font-size: 1.125rem; color: #4a5568;">Un especialista de B.Braun se contactará con usted en menos de 24 horas</p>
+      </div>
+      <form id="contact-form" class="p-8 rounded-lg" style="background-color: white; border: 1px solid #e9ecef;">
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div><label for="nombre" class="block text-sm font-medium mb-2" style="color: #4a5568;">Nombre *</label> <input type="text" id="nombre" name="nombre" required class="w-full px-4 py-3 rounded-lg" style="border: 1px solid #e9ecef; outline: none; transition: border-color 0.3s;">
+        </div>
+        <div><label for="apellido" class="block text-sm font-medium mb-2" style="color: #4a5568;">Apellido *</label> <input type="text" id="apellido" name="apellido" required class="w-full px-4 py-3 rounded-lg" style="border: 1px solid #e9ecef; outline: none; transition: border-color 0.3s;">
+        </div>
+       </div>
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div><label for="correo" class="block text-sm font-medium mb-2" style="color: #4a5568;">Correo Electrónico *</label> <input type="email" id="correo" name="correo" required class="w-full px-4 py-3 rounded-lg" style="border: 1px solid #e9ecef; outline: none; transition: border-color 0.3s;">
+        </div>
+        <div><label for="telefono" class="block text-sm font-medium mb-2" style="color: #4a5568;">Teléfono *</label> <input type="tel" id="telefono" name="telefono" required class="w-full px-4 py-3 rounded-lg" style="border: 1px solid #e9ecef; outline: none; transition: border-color 0.3s;">
+        </div>
+       </div>
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div><label for="institucion" class="block text-sm font-medium mb-2" style="color: #4a5568;">Institución *</label> <input type="text" id="institucion" name="institucion" required class="w-full px-4 py-3 rounded-lg" style="border: 1px solid #e9ecef; outline: none; transition: border-color 0.3s;">
+        </div>
+        <div><label for="cargo" class="block text-sm font-medium mb-2" style="color: #4a5568;">Cargo *</label> <input type="text" id="cargo" name="cargo" required class="w-full px-4 py-3 rounded-lg" style="border: 1px solid #e9ecef; outline: none; transition: border-color 0.3s;">
+        </div>
+       </div>
+       <div class="mb-6"><label for="ciudad" class="block text-sm font-medium mb-2" style="color: #4a5568;">Ciudad *</label> <input type="text" id="ciudad" name="ciudad" required class="w-full px-4 py-3 rounded-lg" style="border: 1px solid #e9ecef; outline: none; transition: border-color 0.3s;">
+       </div>
+       <div class="mb-6"><label for="interes" class="block text-sm font-medium mb-2" style="color: #4a5568;">Área de Interés *</label> <select id="interes" name="interes" required class="w-full px-4 py-3 rounded-lg" style="border: 1px solid #e9ecef; outline: none; transition: border-color 0.3s; background-color: white;"> <option value="">Seleccione una opción</option> <option value="prescripcion">Sistemas Cerrados</option> <option value="acceso">Comodidad para la comodidad del paciente</option> <option value="preparacion">Preparación de alimentos</option> <option value="aplicacion">Aplicación de medicamentos</option> <option value="alta">Preparación de alimentos</option> <option value="general">Información General</option> </select>
+       </div>
+       <div class="mb-6"><label for="mensaje" class="block text-sm font-medium mb-2" style="color: #4a5568;">Mensaje</label> <textarea id="mensaje" name="mensaje" rows="4" class="w-full px-4 py-3 rounded-lg" style="border: 1px solid #e9ecef; outline: none; transition: border-color 0.3s; resize: vertical;"></textarea>
+       </div><button type="submit" id="submit-button" class="w-full btn-primary px-6 py-4 rounded-lg text-base font-semibold" style="background-color: #008060; color: white; border: none; cursor: pointer;"> Enviar Solicitud </button>
+       <p id="form-message" class="mt-4 text-center text-sm"></p>
+      </form>
+     </div>
+    </div>
+   </section>
+   <!-- Footer -->
+   <footer class="section-padding" style="background-color: #1a1a1a; color: white; padding: 40px 20px;">
+    <div class="content-wrapper text-center">
+     <p style="color: #a0aec0; font-size: 0.875rem;">© 2025 B. Braun. Todos los derechos reservados.</p>
+    </div>
+   </footer>
+  </div>
+  <script>
+        const defaultConfig = {
+            background_color: "#f8f9fa",
+            surface_color: "#ffffff",
+            text_color: "#1a1a1a",
+            primary_action_color: "#008060",
+            secondary_text_color: "#4a5568",
+            font_family: "Inter",
+            font_size: 16,
+            hero_question: "¿Cómo garantizar la máxima seguridad en cada etapa del tratamiento oncológico?",
+            hero_title: "Seguridad y cuidado en cada etapa del tratamiento oncológico",
+            hero_subtitle: "Desde la prescripción hasta el alta hospitalaria, nuestras soluciones integrales transforman cada fase del tratamiento en una experiencia más segura y eficaz",
+            cta_primary: "Solicita información",
+            cta_secondary: "Descubre nuestras soluciones",
+            problem_title: "¿Qué desafíos enfrentan los profesionales y pacientes en oncología?",
+            solution_title: "Soluciones B. Braun para una terapia segura y efectiva",
+            solution_subtitle: "Innovación y protección para cada etapa del tratamiento oncológico.",
+            benefits_title: "¿Por qué elegir B. Braun?",
+            testimonial_text: "Más de 1000 hospitales confían en nuestras soluciones para oncología.",
+            final_cta_title: "Protege a tu equipo y pacientes hoy mismo.",
+            final_cta_button: "Solicita una demostración"
+        };
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            
+            if (mobileMenu.style.display === 'none' || mobileMenu.style.display === '') {
+                mobileMenu.style.display = 'block';
+                menuIcon.innerHTML = '<line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>';
+            } else {
+                mobileMenu.style.display = 'none';
+                menuIcon.innerHTML = '<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link-mobile').forEach(link => {
+            link.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const menuIcon = document.getElementById('menu-icon');
+                mobileMenu.style.display = 'none';
+                menuIcon.innerHTML = '<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
+            });
+        });
+
+        // Form submission handler
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitButton = document.getElementById('submit-button');
+            const formMessage = document.getElementById('form-message');
+            
+            // Disable button and show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Enviando...';
+            submitButton.style.opacity = '0.7';
+            
+            // Simulate form submission (replace with actual submission logic)
+            setTimeout(() => {
+                // Show success message
+                formMessage.textContent = '¡Gracias! Su solicitud ha sido enviada correctamente. Nos contactaremos pronto.';
+                formMessage.style.color = '#008060';
+                formMessage.style.fontWeight = '600';
+                
+                // Reset form
+                document.getElementById('contact-form').reset();
+                
+                // Reset button
+                submitButton.disabled = false;
+                submitButton.textContent = 'Enviar Solicitud';
+                submitButton.style.opacity = '1';
+                
+                // Clear message after 5 seconds
+                setTimeout(() => {
+                    formMessage.textContent = '';
+                }, 5000);
+            }, 1500);
+        });
+
+        async function onConfigChange(config) {
+            const customFont = config.font_family || defaultConfig.font_family;
+            const baseFontStack = '-apple-system, BlinkMacSystemFont, sans-serif';
+            const baseSize = config.font_size || defaultConfig.font_size;
+            
+            const backgroundColor = config.background_color || defaultConfig.background_color;
+            const surfaceColor = config.surface_color || defaultConfig.surface_color;
+            const textColor = config.text_color || defaultConfig.text_color;
+            const primaryActionColor = config.primary_action_color || defaultConfig.primary_action_color;
+            const secondaryTextColor = config.secondary_text_color || defaultConfig.secondary_text_color;
+            
+            document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+            document.body.style.color = textColor;
+            
+            const heroQuestion = document.getElementById('hero-question');
+            if (heroQuestion) {
+                heroQuestion.textContent = config.hero_question || defaultConfig.hero_question;
+                heroQuestion.style.fontSize = `${baseSize * 1.25}px`;
+                heroQuestion.style.fontFamily = `${customFont}, ${baseFontStack}`;
+            }
+            
+            const heroTitle = document.getElementById('hero-title');
+            heroTitle.textContent = config.hero_title || defaultConfig.hero_title;
+            heroTitle.style.fontSize = `${baseSize * 2.2}px`;
+            heroTitle.style.fontFamily = `${customFont}, ${baseFontStack}`;
+            
+            const heroSubtitle = document.getElementById('hero-subtitle');
+            heroSubtitle.textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+            heroSubtitle.style.fontSize = `${baseSize * 1.25}px`;
+            heroSubtitle.style.fontFamily = `${customFont}, ${baseFontStack}`;
+            
+            const ctaPrimary = document.getElementById('cta-primary');
+            ctaPrimary.textContent = config.cta_primary || defaultConfig.cta_primary;
+            ctaPrimary.style.backgroundColor = 'white';
+            ctaPrimary.style.color = primaryActionColor;
+            ctaPrimary.style.fontSize = `${baseSize * 1.125}px`;
+            ctaPrimary.style.fontFamily = `${customFont}, ${baseFontStack}`;
+            
+            const ctaSecondary = document.getElementById('cta-secondary');
+            ctaSecondary.textContent = config.cta_secondary || defaultConfig.cta_secondary;
+            ctaSecondary.style.color = 'white';
+            ctaSecondary.style.borderColor = 'white';
+            ctaSecondary.style.fontSize = `${baseSize * 1.125}px`;
+            ctaSecondary.style.fontFamily = `${customFont}, ${baseFontStack}`;
+            
+            const problemTitle = document.getElementById('problem-title');
+            problemTitle.textContent = config.problem_title || defaultConfig.problem_title;
+            problemTitle.style.fontSize = `${baseSize * 2.5}px`;
+            problemTitle.style.color = textColor;
+            problemTitle.style.fontFamily = `${customFont}, ${baseFontStack}`;
+            
+            const solutionTitle = document.getElementById('solution-title');
+            solutionTitle.textContent = config.solution_title || defaultConfig.solution_title;
+            solutionTitle.style.fontSize = `${baseSize * 2.5}px`;
+            solutionTitle.style.color = textColor;
+            solutionTitle.style.fontFamily = `${customFont}, ${baseFontStack}`;
+            
+            const solutionSubtitle = document.getElementById('solution-subtitle');
+            solutionSubtitle.textContent = config.solution_subtitle || defaultConfig.solution_subtitle;
+            solutionSubtitle.style.fontSize = `${baseSize * 1.25}px`;
+            solutionSubtitle.style.color = secondaryTextColor;
+            solutionSubtitle.style.fontFamily = `${customFont}, ${baseFontStack}`;
+            
+            const benefitsTitle = document.getElementById('benefits-title');
+            benefitsTitle.textContent = config.benefits_title || defaultConfig.benefits_title;
+            benefitsTitle.style.fontSize = `${baseSize * 2.5}px`;
+            benefitsTitle.style.color = textColor;
+            benefitsTitle.style.fontFamily = `${customFont}, ${baseFontStack}`;
+            
+            const testimonialText = document.getElementById('testimonial-text');
+            testimonialText.textContent = `"${config.testimonial_text || defaultConfig.testimonial_text}"`;
+            testimonialText.style.fontSize = `${baseSize * 1.75}px`;
+            testimonialText.style.fontFamily = `${customFont}, ${baseFontStack}`;
+            
+            const finalCtaTitle = document.getElementById('final-cta-title');
+            finalCtaTitle.textContent = config.final_cta_title || defaultConfig.final_cta_title;
+            finalCtaTitle.style.fontSize = `${baseSize * 2.5}px`;
+            finalCtaTitle.style.color = textColor;
+            finalCtaTitle.style.fontFamily = `${customFont}, ${baseFontStack}`;
+            
+            document.querySelectorAll('.stat-card div:first-child').forEach(statNumber => {
+                statNumber.style.color = primaryActionColor;
+            });
+            
+            document.querySelectorAll('.solution-card').forEach(card => {
+                card.style.backgroundColor = surfaceColor;
+                const icon = card.querySelector('div:first-child');
+                if (icon) icon.style.backgroundColor = primaryActionColor;
+            });
+            
+            document.querySelectorAll('.benefit-card').forEach(card => {
+                card.style.backgroundColor = surfaceColor;
+                card.style.borderTopColor = primaryActionColor;
+            });
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [
+                    {
+                        get: () => config.background_color || defaultConfig.background_color,
+                        set: (value) => {
+                            if (window.elementSdk) {
+                                window.elementSdk.config.background_color = value;
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.surface_color || defaultConfig.surface_color,
+                        set: (value) => {
+                            if (window.elementSdk) {
+                                window.elementSdk.config.surface_color = value;
+                                window.elementSdk.setConfig({ surface_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.text_color || defaultConfig.text_color,
+                        set: (value) => {
+                            if (window.elementSdk) {
+                                window.elementSdk.config.text_color = value;
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.primary_action_color || defaultConfig.primary_action_color,
+                        set: (value) => {
+                            if (window.elementSdk) {
+                                window.elementSdk.config.primary_action_color = value;
+                                window.elementSdk.setConfig({ primary_action_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.secondary_text_color || defaultConfig.secondary_text_color,
+                        set: (value) => {
+                            if (window.elementSdk) {
+                                window.elementSdk.config.secondary_text_color = value;
+                                window.elementSdk.setConfig({ secondary_text_color: value });
+                            }
+                        }
+                    }
+                ],
+                borderables: [],
+                fontEditable: {
+                    get: () => config.font_family || defaultConfig.font_family,
+                    set: (value) => {
+                        if (window.elementSdk) {
+                            window.elementSdk.config.font_family = value;
+                            window.elementSdk.setConfig({ font_family: value });
+                        }
+                    }
+                },
+                fontSizeable: {
+                    get: () => config.font_size || defaultConfig.font_size,
+                    set: (value) => {
+                        if (window.elementSdk) {
+                            window.elementSdk.config.font_size = value;
+                            window.elementSdk.setConfig({ font_size: value });
+                        }
+                    }
+                }
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["hero_question", config.hero_question || defaultConfig.hero_question],
+                ["hero_title", config.hero_title || defaultConfig.hero_title],
+                ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
+                ["cta_primary", config.cta_primary || defaultConfig.cta_primary],
+                ["cta_secondary", config.cta_secondary || defaultConfig.cta_secondary],
+                ["problem_title", config.problem_title || defaultConfig.problem_title],
+                ["solution_title", config.solution_title || defaultConfig.solution_title],
+                ["solution_subtitle", config.solution_subtitle || defaultConfig.solution_subtitle],
+                ["benefits_title", config.benefits_title || defaultConfig.benefits_title],
+                ["testimonial_text", config.testimonial_text || defaultConfig.testimonial_text],
+                ["final_cta_title", config.final_cta_title || defaultConfig.final_cta_title],
+                ["final_cta_button", config.final_cta_button || defaultConfig.final_cta_button]
+            ]);
+        }
+
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            animatedElements.forEach(el => observer.observe(el));
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a7b5b701667a563',t:'MTc2NDY4NDA5Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
